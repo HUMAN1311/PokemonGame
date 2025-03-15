@@ -12,9 +12,9 @@ public class LookAround extends Command {
     }
 
     public void execute(Game game) {
-        System.out.println(game.currentLocation.description);
-        game.currentLocation.printNpcList();
-        game.currentLocation.printItemList();
+        System.out.println(game.getCurrentLocation().description);
+        game.getCurrentLocation().printNpcList();
+        game.getCurrentLocation().printItemList();
 
     }
 

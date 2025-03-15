@@ -13,7 +13,7 @@ public class Interact extends Command {
     }
 
     public void execute(Game game, ArrayList<String> args) {
-        NPC npcInteraction = game.currentLocation.findNpc(args.get(0));
+        NPC npcInteraction = game.getCurrentLocation().findNpc(args.get(0));
         if (npcInteraction != null) {
             npcInteraction.interact();
         } else {

@@ -12,7 +12,7 @@ public class WhoAmI extends Command {
     }
 
     public void execute(Game game) {
-        System.out.println(game.player.name);
+        System.out.println(game.getPlayer().name);
     }
 
     public void execute(Game game, ArrayList<String> args) {

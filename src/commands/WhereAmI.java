@@ -12,7 +12,7 @@ public class WhereAmI extends Command {
     }
 
     public void execute(Game game) {
-        System.out.println(game.currentLocation.name);
+        System.out.println(game.getCurrentLocation().name);
     }
 
     public void execute(Game game, ArrayList<String> args) {

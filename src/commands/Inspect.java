@@ -13,7 +13,7 @@ public class Inspect extends Command {
     }
 
     public void execute(Game game, ArrayList<String> args) {
-        NPC npcInpection = game.currentLocation.findNpc(args.get(0));
+        NPC npcInpection = game.getCurrentLocation().findNpc(args.get(0));
         if (npcInpection != null) {
             npcInpection.inspect();
         } else {

@@ -17,9 +17,9 @@ public class PickUp extends Command {
     }
 
     public void execute(Game game, ArrayList<String> args) {
-        Item collectedItem = game.currentLocation.removeItem(args.get(0));
+        Item collectedItem = game.getCurrentLocation().removeItem(args.get(0));
         if (collectedItem != null) {
-            game.player.addToBag(collectedItem);
+            game.getPlayer().addToBag(collectedItem);
         } else {
             System.out.println("Please enter a valid item");
         }

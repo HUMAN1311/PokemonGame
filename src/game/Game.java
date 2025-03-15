@@ -11,11 +11,11 @@ import commands.*;
 
 public class Game {
 
-    public Location currentLocation;
-    public PlayerCharacter player;
+    private Location currentLocation;
+    private PlayerCharacter player;
     private Scanner scan = new Scanner(System.in);
-    public ArrayList<Command> coolCommands = new ArrayList<Command>();
-    public ArrayList<Location> coolLocations = new ArrayList<Location>();
+    private ArrayList<Command> coolCommands = new ArrayList<Command>();
+    private ArrayList<Location> coolLocations = new ArrayList<Location>();
 
     public Game() {
         System.out.println("welcome to game");
@@ -31,7 +31,7 @@ public class Game {
 
     }
 
-    public void createCharacter() {
+    private void createCharacter() {
         System.out.print("What is your name?    ");
         String playerName = this.scan.nextLine();
         System.out.print("What is your gender?    ");
@@ -41,10 +41,10 @@ public class Game {
         this.player = new PlayerCharacter(playerName, playerGender, playerHair);
     }
 
-    public void createWorld() {
+    private void createWorld() {
         coolLocations.add(new Home());
         coolLocations.add(new Morioh());
-        currentLocation = coolLocations.get(1);
+        currentLocation = coolLocations.get(0);
     }
 
     public void start() {
@@ -68,7 +68,7 @@ public class Game {
         this.scan.close();
     }
 
-    public void executioner(String cmd, ArrayList<String> args) {
+    private void executioner(String cmd, ArrayList<String> args) {
         // first find the command object
         Command commandMatch = null;
         for (Command c : coolCommands) {
@@ -94,7 +94,7 @@ public class Game {
 
     }
 
-    public void instantiateCmds() {
+    private void instantiateCmds() {
         this.coolCommands.add(new WhoAmI());
         this.coolCommands.add(new WhereAmI());
         this.coolCommands.add(new LookAround());
@@ -103,12 +103,36 @@ public class Game {
         this.coolCommands.add(new Help());
         this.coolCommands.add(new PickUp());
         this.coolCommands.add(new Inventory());
+        this.coolCommands.add(new Travel());
+    }
+
+    public Location findLocation(String name) {
+        for (Location l : this.coolLocations) {
+            if (l.name.equalsIgnoreCase(name)) {
+                return l;
+            }
+        }
+        return null;
+    }
+
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public PlayerCharacter getPlayer() {
+        return player;
+    }
+
+    public void setCurrentLocation(Location newLocation) {
+        currentLocation = newLocation;
     }
 }
 
 // ">help" for more commands
+// ">Map" for list of locations
 // able to leave house and go to town or smth idk (working yes)
 // major npcs/quests
 // steal Skitty Queens blue metal ball
 // draw.io plan for locations
 // pickup with 2 words, like mouldy apple
+// interactable things

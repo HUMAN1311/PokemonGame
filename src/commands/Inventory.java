@@ -12,7 +12,7 @@ public class Inventory extends Command {
     }
 
     public void execute(Game game) {
-        game.player.printBag();
+        game.getPlayer().printBag();
     }
 
     public void execute(Game game, ArrayList<String> args) {
