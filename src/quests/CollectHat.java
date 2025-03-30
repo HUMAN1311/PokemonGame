@@ -6,6 +6,7 @@ import items.Sandwich;
 public class CollectHat extends Quest {
     public CollectHat() {
         name = "CollectHat";
+        description = "Find & Collect one Hat";
     }
 
     public boolean isComplete(PlayerCharacter player) {
@@ -19,6 +20,7 @@ public class CollectHat extends Quest {
 
     protected void giveReward(PlayerCharacter player) {
         player.addToBag(new Sandwich());
+        System.out.println("Mum:    Well done for finding your hat, here's a sandwich!\n");
     }
 
 }

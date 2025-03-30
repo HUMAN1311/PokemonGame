@@ -107,6 +107,7 @@ public class Game {
         this.coolCommands.add(new PickUp());
         this.coolCommands.add(new Inventory());
         this.coolCommands.add(new Travel());
+        this.coolCommands.add(new Quests());
     }
 
     public Location findLocation(String name) {
@@ -137,5 +138,3 @@ public class Game {
 // steal Skitty Queens blue metal ball
 // pickup with 2 words, like mouldy apple
 // interactable things
-// add print thing to say that you completed a quest
-// add smth to print questlist

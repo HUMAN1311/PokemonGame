@@ -23,7 +23,8 @@ public class Location {
         for (NPC n : NPCs) {
             toPrint = toPrint + n.name + ", ";
         }
-        System.out.println(toPrint);
+        System.out.println(toPrint.substring(0, toPrint.length() - 2)); // this removes last character (\n)
+
     }
 
     public void printItemList() {
@@ -31,7 +32,8 @@ public class Location {
         for (Item i : collectables) {
             toPrint = toPrint + i.name + ", ";
         }
-        System.out.println(toPrint);
+        System.out.println(toPrint.substring(0, toPrint.length() - 2)); // this removes last character (\n)
+
     }
 
     public NPC findNpc(String npcName) {

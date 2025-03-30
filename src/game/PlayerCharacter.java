@@ -30,7 +30,7 @@ public class PlayerCharacter {
         for (Item i : bag) {
             toPrint = toPrint + i.name + ", ";
         }
-        System.out.println(toPrint);
+        System.out.println(toPrint.substring(0, toPrint.length() - 2)); // this removes last character (\n)
     }
 
     public int searchBag(String itemName) {
@@ -56,6 +56,7 @@ public class PlayerCharacter {
         for (Quest q : questList) {
             boolean questComplete = q.isComplete(this);
             if (questComplete) {
+
                 toRemove.add(q);
             }
         }
@@ -63,4 +64,13 @@ public class PlayerCharacter {
             questList.remove(q);
         }
     }
+
+    public void printQuests() {
+        String toPrint = "Your quests are: \n";
+        for (Quest q : questList) {
+            toPrint = toPrint + "   " + q.name + ": " + q.description + "\n";
+        }
+        System.out.println(toPrint.substring(0, toPrint.length() - 1)); // this removes last character (\n)
+    }
+
 }
