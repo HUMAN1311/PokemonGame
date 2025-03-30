@@ -8,6 +8,7 @@ import theworld.Location;
 import theworld.Morioh;
 import theworld.Home;
 import commands.*;
+import quests.CollectHat;
 
 public class Game {
 
@@ -39,6 +40,7 @@ public class Game {
         System.out.print("What is your hair colour?    ");
         String playerHair = this.scan.nextLine();
         this.player = new PlayerCharacter(playerName, playerGender, playerHair);
+        this.player.addQuest(new CollectHat());
     }
 
     private void createWorld() {
@@ -64,6 +66,7 @@ public class Game {
                 }
                 System.out.println("");
             }
+            player.checkQuests();
         }
         this.scan.close();
     }
@@ -130,9 +133,9 @@ public class Game {
 
 // ">help" for more commands
 // ">Map" for list of locations
-// able to leave house and go to town or smth idk (working yes)
 // major npcs/quests
 // steal Skitty Queens blue metal ball
-// draw.io plan for locations
 // pickup with 2 words, like mouldy apple
 // interactable things
+// add print thing to say that you completed a quest
+// add smth to print questlist
