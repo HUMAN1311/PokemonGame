@@ -11,6 +11,7 @@ public class PlayerCharacter {
     public String hairColour;
     private ArrayList<Item> bag;
     private ArrayList<Quest> questList;
+    private ArrayList<Quest> completedQuestList;
 
     public PlayerCharacter(String name, String gender, String hairColour) {
         this.name = name;
@@ -18,6 +19,7 @@ public class PlayerCharacter {
         this.hairColour = hairColour;
         this.bag = new ArrayList<Item>();
         this.questList = new ArrayList<Quest>();
+        this.completedQuestList = new ArrayList<Quest>();
 
     }
 
@@ -43,7 +45,14 @@ public class PlayerCharacter {
     }
 
     public void addQuest(Quest quest) {
+        // this for loop prevents duplicate quests
         for (Quest q : questList) {
+            if (q.name == quest.name) {
+                return;
+            }
+        }
+        // this for loop prevents completing the same quest multiple time
+        for (Quest q : completedQuestList) {
             if (q.name == quest.name) {
                 return;
             }
@@ -56,7 +65,7 @@ public class PlayerCharacter {
         for (Quest q : questList) {
             boolean questComplete = q.isComplete(this);
             if (questComplete) {
-
+                completedQuestList.add(q);
                 toRemove.add(q);
             }
         }

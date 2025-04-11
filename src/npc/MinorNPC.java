@@ -1,5 +1,7 @@
 package npc;
 
+import game.Game;
+
 public class MinorNPC extends NPC {
     public String dialog;
 
@@ -9,7 +11,7 @@ public class MinorNPC extends NPC {
     }
 
     @Override
-    public void interact() {
+    public void interact(Game game) {
         System.out.println(name + ": " + dialog);
     }
 

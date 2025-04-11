@@ -8,7 +8,6 @@ import theworld.Location;
 import theworld.Morioh;
 import theworld.Home;
 import commands.*;
-import quests.CollectHat;
 
 public class Game {
 
@@ -40,7 +39,6 @@ public class Game {
         System.out.print("What is your hair colour?    ");
         String playerHair = this.scan.nextLine();
         this.player = new PlayerCharacter(playerName, playerGender, playerHair);
-        this.player.addQuest(new CollectHat());
     }
 
     private void createWorld() {

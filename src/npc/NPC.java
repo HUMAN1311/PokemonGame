@@ -1,5 +1,7 @@
 package npc;
 
+import game.Game;
+
 public class NPC {
     public String name;
     public String design;
@@ -9,7 +11,7 @@ public class NPC {
         this.design = design;
     }
 
-    public void interact() {
+    public void interact(Game game) {
         System.out.println("This is " + name + ", " + design);
 
     }
