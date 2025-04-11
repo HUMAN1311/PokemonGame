@@ -20,7 +20,7 @@ public class CollectHat extends Quest {
 
     protected void giveReward(PlayerCharacter player) {
         player.addToBag(new Sandwich());
-        System.out.println("Mum:    Well done for finding your hat, here's a sandwich!\n");
+        System.out.println("Mum:    Well done for finding your hat, here's a sandwich!");
     }
 
 }

@@ -19,20 +19,24 @@ public class Location {
     }
 
     public void printNpcList() {
-        String toPrint = "People you see - ";
-        for (NPC n : NPCs) {
-            toPrint = toPrint + n.name + ", ";
-        }
-        System.out.println(toPrint.substring(0, toPrint.length() - 2)); // this removes last character (\n)
+        if (NPCs.size() >= 1) {
+            String toPrint = "People you see - ";
+            for (NPC n : NPCs) {
+                toPrint = toPrint + n.name + ", ";
+            }
+            System.out.println(toPrint.substring(0, toPrint.length() - 2)); // this removes last character (\n)
 
+        }
     }
 
     public void printItemList() {
-        String toPrint = "Items you see - ";
-        for (Item i : collectables) {
-            toPrint = toPrint + i.name + ", ";
+        if (collectables.size() >= 1) {
+            String toPrint = "Items you see - ";
+            for (Item i : collectables) {
+                toPrint = toPrint + i.name + ", ";
+            }
+            System.out.println(toPrint.substring(0, toPrint.length() - 2)); // this removes last character (\n)
         }
-        System.out.println(toPrint.substring(0, toPrint.length() - 2)); // this removes last character (\n)
 
     }
 

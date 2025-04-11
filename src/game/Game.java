@@ -64,9 +64,9 @@ public class Game {
                 } else {
                     executioner(command, commandArguments);
                 }
-                System.out.println("");
             }
             player.checkQuests();
+            System.out.println("");
         }
         this.scan.close();
     }
