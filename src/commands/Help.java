@@ -13,7 +13,16 @@ public class Help extends Command {
     }
 
     public void execute(Game game) {
-        System.out.println("no");
+        System.out.println("    - Interact");
+        System.out.println("    - Inspect");
+        System.out.println("    - Inventory");
+        System.out.println("    - LookAround");
+        System.out.println("    - Map");
+        System.out.println("    - PickUp");
+        System.out.println("    - Quests");
+        System.out.println("    - Travel");
+        System.out.println("    - WhereAmI");
+        System.out.println("    - WhoAmI");
     }
 
     public void execute(Game game, ArrayList<String> args) {

@@ -12,6 +12,7 @@ public class PlayerCharacter {
     private ArrayList<Item> bag;
     private ArrayList<Quest> questList;
     private ArrayList<Quest> completedQuestList;
+    private int money;
 
     public PlayerCharacter(String name, String gender, String hairColour) {
         this.name = name;
@@ -37,11 +38,15 @@ public class PlayerCharacter {
 
     public int searchBag(String itemName) {
         for (int i = 0; i < bag.size(); i++) {
-            if (bag.get(i).name == itemName) {
+            if (bag.get(i).name.equalsIgnoreCase(itemName)) {
                 return i;
             }
         }
         return -1;
+    }
+
+    public Item removeFromBag(int i) {
+        return bag.remove(i);
     }
 
     public void addQuest(Quest quest) {
@@ -80,6 +85,22 @@ public class PlayerCharacter {
             toPrint = toPrint + "   " + q.name + ": " + q.description + "\n";
         }
         System.out.println(toPrint.substring(0, toPrint.length() - 1)); // this removes last character (\n)
+    }
+
+    public int getMoneyAmount() {
+        return this.money;
+    }
+
+    /**
+     * 
+     * @param a The amount to add
+     */
+
+    public void addToBalance(int a) {
+        money = money + a;
+        if (money < 0) {
+            System.out.println(":(");
+        }
     }
 
 }

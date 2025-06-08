@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
 
-import theworld.Location;
-import theworld.Morioh;
-import theworld.Home;
+import theworld.*;
 import commands.*;
 
 public class Game {
@@ -44,17 +42,20 @@ public class Game {
     private void createWorld() {
         coolLocations.add(new Home());
         coolLocations.add(new Morioh());
+        coolLocations.add(new Shibuya());
+        coolLocations.add(new Shop());
         currentLocation = coolLocations.get(0);
     }
 
     public void start() {
         boolean isFinished = false;
         while (!isFinished) {
+            // This These lines get the input from the user VVV
             System.out.print(">");
             String input = this.scan.nextLine().toLowerCase();
             ArrayList<String> commandArguments = new ArrayList<String>(Arrays.asList(input.split(" "))); // Splits words
                                                                                                          // appart with
-            if (commandArguments.size() >= 1) { // " "
+            if (commandArguments.size() >= 1) { // This makes sure that something has been entered
                 String command = commandArguments.get(0);
                 commandArguments.remove(0); // commandArguments now only contains arguments
                 if (input.equalsIgnoreCase("exit")) {
@@ -106,6 +107,7 @@ public class Game {
         this.coolCommands.add(new Inventory());
         this.coolCommands.add(new Travel());
         this.coolCommands.add(new Quests());
+        this.coolCommands.add(new Map());
     }
 
     public Location findLocation(String name) {
@@ -121,18 +123,30 @@ public class Game {
         return currentLocation;
     }
 
+    public void setCurrentLocation(Location newLocation) {
+        currentLocation = newLocation;
+    }
+
     public PlayerCharacter getPlayer() {
         return player;
     }
 
-    public void setCurrentLocation(Location newLocation) {
-        currentLocation = newLocation;
+    public ArrayList<Location> getLocations() {
+        return coolLocations;
     }
-}
 
-// ">help" for more commands
-// ">Map" for list of locations
-// major npcs/quests
-// steal Skitty Queens blue metal ball
-// pickup with 2 words, like mouldy apple
-// interactable things
+    public Scanner getScanner() {
+        return scan;
+    }
+
+}
+// Add blue ball on floor of morioh and if u take skitty is angry
+// Make items in inv usable
+// eigth handled sword divergent sila divine general <pokemon name> in shibuya
+// zoro :D (lost)
+// add static name attributes to items
+// inspectable items
+// after you quest for the button theres another character who u talk to
+// (hayato)
+// money
+// toruu for shop person. no WOU

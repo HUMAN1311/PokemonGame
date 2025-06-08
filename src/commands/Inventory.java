@@ -13,6 +13,7 @@ public class Inventory extends Command {
 
     public void execute(Game game) {
         game.getPlayer().printBag();
+        System.out.println("Your balance is:    £" + game.getPlayer().getMoneyAmount());
     }
 
     public void execute(Game game, ArrayList<String> args) {
