@@ -140,12 +140,11 @@ public class Game {
     }
 
 }
-// Add blue ball on floor of morioh and if u take skitty is angry
 // Make items in inv usable
-// eigth handled sword divergent sila divine general <pokemon name> in shibuya
-// zoro :D (lost)
-// inspectable items
 // after you quest for the button theres another character who u talk to
 // (hayato)
 // toruu for shop person. no WOU
-// saving/loading the game
+// saving/loading the game (and error handling)#
+
+// eigth handled sword divergent sila divine general <pokemon name> in shibuya
+// zoro :D (lost)

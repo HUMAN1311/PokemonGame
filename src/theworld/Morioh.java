@@ -21,6 +21,7 @@ public class Morioh extends Location {
     public static ArrayList<Item> generateMoriohItems() {
         ArrayList<Item> morioh_Items = new ArrayList<Item>();
         morioh_Items.add(new MouldyApple());
+        morioh_Items.add(new BlueBall());
 
         return morioh_Items;
     }
