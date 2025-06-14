@@ -60,4 +60,27 @@ public class Location {
         return null;
     }
 
+    /**
+     * 
+     * @param name The name of the thing we are searching for
+     * @return Either the index we found or -1 if nothing was found
+     */
+
+    public int searchFloor(String name) {
+        for (int i = 0; i < collectables.size(); i++) {
+            if (collectables.get(i).name.equalsIgnoreCase(name)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public Item getFromFloor(int i) {
+        if (i >= 0 && i <= collectables.size() - 1) {
+            return collectables.get(i);
+        } else {
+            return null;
+        }
+    }
+
 }

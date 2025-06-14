@@ -11,4 +11,7 @@ public class Item {
         this.value = value;
     }
 
+    public void inspect() {
+        System.out.println(description);
+    }
 }

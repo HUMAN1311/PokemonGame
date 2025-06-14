@@ -103,4 +103,17 @@ public class PlayerCharacter {
         }
     }
 
+    /**
+     * 
+     * @param i The index of the item we need
+     * @return The item that we may find or null if nothing is at the index
+     */
+
+    public Item getFromBag(int i) {
+        if (i >= 0 && i <= bag.size() - 1) {
+            return bag.get(i);
+        } else {
+            return null;
+        }
+    }
 }

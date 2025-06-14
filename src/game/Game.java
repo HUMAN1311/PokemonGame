@@ -144,9 +144,8 @@ public class Game {
 // Make items in inv usable
 // eigth handled sword divergent sila divine general <pokemon name> in shibuya
 // zoro :D (lost)
-// add static name attributes to items
 // inspectable items
 // after you quest for the button theres another character who u talk to
 // (hayato)
-// money
 // toruu for shop person. no WOU
+// saving/loading the game

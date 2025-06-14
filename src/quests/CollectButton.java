@@ -1,6 +1,7 @@
 package quests;
 
 import game.PlayerCharacter;
+import items.StrangeButton;
 
 public class CollectButton extends Quest {
 
@@ -10,7 +11,7 @@ public class CollectButton extends Quest {
     }
 
     public boolean isComplete(PlayerCharacter player) {
-        if (player.searchBag("StrangeButton") != -1) {
+        if (player.searchBag(StrangeButton.NAME) != -1) {
             giveReward(player);
             return true;
         } else

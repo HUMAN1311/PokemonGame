@@ -1,7 +1,7 @@
 package quests;
 
 import game.PlayerCharacter;
-import items.Sandwich;
+import items.*;
 
 public class CollectHat extends Quest {
     public CollectHat() {
@@ -10,7 +10,7 @@ public class CollectHat extends Quest {
     }
 
     public boolean isComplete(PlayerCharacter player) {
-        if (player.searchBag("Hat") != -1) {
+        if (player.searchBag(Hat.NAME) != -1) {
             giveReward(player);
             return true;
         } else
