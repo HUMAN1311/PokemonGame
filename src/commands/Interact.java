@@ -23,6 +23,7 @@ public class Interact extends Command {
     }
 
     public void execute(Game game) {
+        throw new Error("Please do not call this method or I will summon Mahoraga");
 
     }
 
