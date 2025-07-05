@@ -3,11 +3,18 @@ package game;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Arrays;
+import java.io.File;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.FileWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.Serializable;
 
 import theworld.*;
 import commands.*;
 
-public class Game {
+public class Game implements Serializable {
 
     private Location currentLocation;
     private PlayerCharacter player;
@@ -26,8 +33,56 @@ public class Game {
     public static void main(String[] args) throws Exception {
         Game newGame = new Game();
         newGame.start();
-
     }
+
+    // public static void makeFile() {
+    // try {
+    // File f = new File("File.txt");
+    // boolean wasCreated = f.createNewFile();
+    // if (wasCreated) {
+    // System.out.println("File was created");
+    // } else {
+    // System.out.println("File already exists");
+    // }
+    // } catch (IOException e) {
+    // System.out.println("IOException occured :<");
+    // }
+    // }
+
+    // public static void writeFile() {
+
+    // try {
+    // FileWriter w = new FileWriter("File.txt", true);
+    // w.write(" __\r\n" + //
+    // " w c(..)o (\r\n" + //
+    // " \\__(-) __)\r\n" + //
+    // " /\\ (\r\n" + //
+    // " /(_)___)\r\n" + //
+    // " w /|\r\n" + //
+    // " | \\\r\n" + //
+    // " m m \r\n");
+    // w.close();
+    // System.out.println("my new favourite reaction image is the distinguished
+    // monkey");
+    // } catch (IOException e) {
+    // System.out.println("An IOExecption occured");
+    // }
+    // }
+
+    // public static void readFile() {
+
+    // try {
+    // File r = new File("File.txt");
+    // Scanner scan = new Scanner(r);
+    // while (scan.hasNextLine()) {
+    // System.out.println(scan.nextLine());
+    // }
+    // scan.close();
+    // } catch (FileNotFoundException e) {
+    // System.out.println("File was not found" + e.getMessage());
+
+    // }
+    // }
 
     private void createCharacter() {
         System.out.print("What is your name?    ");
@@ -137,6 +192,28 @@ public class Game {
 
     public Scanner getScanner() {
         return scan;
+    }
+
+    private boolean save() {
+        File f = new File(this.player.name);
+        try {
+            if (!f.exists()) {
+                f.createNewFile();
+            }
+        } catch (IOException e) {
+            System.out.println("There was an error when saving the game (watashiwadanokirayoshikage)");
+            return false;
+        }
+        try {
+            FileOutputStream fOut = new FileOutputStream(f);
+            ObjectOutputStream oOut = new ObjectOutputStream(fOut);
+            oOut.writeObject(this);
+            System.out.println("Game saved!");
+        } catch (Exception e) {
+            System.out.println("There was an error when saving the game (watashiwadanokirayoshikage)");
+            return false;
+        }
+        return true;
     }
 
 }
