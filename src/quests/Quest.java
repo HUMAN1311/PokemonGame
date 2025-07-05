@@ -1,8 +1,10 @@
 package quests;
 
+import java.io.Serializable;
+
 import game.PlayerCharacter;
 
-public abstract class Quest {
+public abstract class Quest implements Serializable {
 
     public String name;
     public String description;

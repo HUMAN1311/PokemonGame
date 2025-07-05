@@ -6,8 +6,6 @@ import java.util.Arrays;
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.io.FileWriter;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.Serializable;
 
@@ -18,7 +16,7 @@ public class Game implements Serializable {
 
     private Location currentLocation;
     private PlayerCharacter player;
-    private Scanner scan = new Scanner(System.in);
+    private transient Scanner scan = new Scanner(System.in);
     private ArrayList<Command> coolCommands = new ArrayList<Command>();
     private ArrayList<Location> coolLocations = new ArrayList<Location>();
 
@@ -163,6 +161,7 @@ public class Game implements Serializable {
         this.coolCommands.add(new Travel());
         this.coolCommands.add(new Quests());
         this.coolCommands.add(new Map());
+        this.coolCommands.add(new Save());
     }
 
     public Location findLocation(String name) {
@@ -191,10 +190,13 @@ public class Game implements Serializable {
     }
 
     public Scanner getScanner() {
+        if (scan == null) {
+            scan = new Scanner(System.in);
+        }
         return scan;
     }
 
-    private boolean save() {
+    public boolean save() {
         File f = new File(this.player.name);
         try {
             if (!f.exists()) {
@@ -209,8 +211,9 @@ public class Game implements Serializable {
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             oOut.writeObject(this);
             System.out.println("Game saved!");
+            oOut.close();
         } catch (Exception e) {
-            System.out.println("There was an error when saving the game (watashiwadanokirayoshikage)");
+            System.out.println("There was an error when saving the game (watashiwadanokirayoshikage)" + e.getMessage());
             return false;
         }
         return true;

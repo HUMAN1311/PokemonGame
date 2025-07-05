@@ -1,10 +1,11 @@
 package commands;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
 import game.Game;
 
-public abstract class Command {
+public abstract class Command implements Serializable {
 
     public String name;
     public int argsAmount;

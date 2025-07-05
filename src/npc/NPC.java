@@ -1,8 +1,10 @@
 package npc;
 
+import java.io.Serializable;
+
 import game.Game;
 
-public class NPC {
+public class NPC implements Serializable {
     public String name;
     public String design;
 

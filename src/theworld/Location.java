@@ -1,11 +1,12 @@
 package theworld;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import items.Item;
 import npc.NPC;
 
-public class Location {
+public class Location implements Serializable {
     public String name;
     public String description;
     public ArrayList<NPC> NPCs;

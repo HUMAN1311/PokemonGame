@@ -1,11 +1,12 @@
 package game;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import items.Item;
 import quests.Quest;
 
-public class PlayerCharacter {
+public class PlayerCharacter implements Serializable {
     public String name;
     public String gender;
     public String hairColour;
