@@ -7,6 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.Serializable;
 
 import theworld.*;
@@ -14,6 +17,7 @@ import commands.*;
 
 public class Game implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private Location currentLocation;
     private PlayerCharacter player;
     private transient Scanner scan = new Scanner(System.in);
@@ -162,6 +166,7 @@ public class Game implements Serializable {
         this.coolCommands.add(new Quests());
         this.coolCommands.add(new Map());
         this.coolCommands.add(new Save());
+        this.coolCommands.add(new Load());
     }
 
     public Location findLocation(String name) {
@@ -203,7 +208,7 @@ public class Game implements Serializable {
                 f.createNewFile();
             }
         } catch (IOException e) {
-            System.out.println("There was an error when saving the game (watashiwadanokirayoshikage)");
+            System.out.println("There was an error when saving the game");
             return false;
         }
         try {
@@ -213,18 +218,35 @@ public class Game implements Serializable {
             System.out.println("Game saved!");
             oOut.close();
         } catch (Exception e) {
-            System.out.println("There was an error when saving the game (watashiwadanokirayoshikage)" + e.getMessage());
+            System.out.println("There was an error when saving the game" + e.getMessage());
             return false;
         }
         return true;
     }
 
+    public static Game load(String saveName) {
+        Game game = null;
+        try {
+            FileInputStream fIn = new FileInputStream(saveName);
+            ObjectInputStream oIn = new ObjectInputStream(fIn);
+            game = (Game) oIn.readObject();
+            oIn.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Please enter a valid file name");
+        } catch (IOException e) {
+            System.out.println("There was an error when loading the game" + e.getMessage());
+        } catch (ClassNotFoundException e) {
+            System.out.println("There was an error when loading the game" + e.getMessage());
+        }
+        return game;
+    }
+
 }
 // Make items in inv usable
 // after you quest for the button theres another character who u talk to
-// (hayato)
-// toruu for shop person. no WOU
-// saving/loading the game (and error handling)
+// (hayato) watashiwadanokirayoshikage
+// toruu for shop person. no WOU (BuyNPC)
+// loading the game
 
 // eigth handled sword divergent sila divine general <pokemon name> in shibuya
 // zoro :D (lost)

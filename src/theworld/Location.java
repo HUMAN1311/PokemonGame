@@ -7,6 +7,8 @@ import items.Item;
 import npc.NPC;
 
 public class Location implements Serializable {
+
+    private static final long serialVersionUID = 5L;
     public String name;
     public String description;
     public ArrayList<NPC> NPCs;

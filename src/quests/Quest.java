@@ -6,6 +6,7 @@ import game.PlayerCharacter;
 
 public abstract class Quest implements Serializable {
 
+    private static final long serialVersionUID = 4L;
     public String name;
     public String description;
 

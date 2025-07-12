@@ -5,6 +5,7 @@ import java.io.Serializable;
 import game.Game;
 
 public class NPC implements Serializable {
+    private static final long serialVersionUID = 4L;
     public String name;
     public String design;
 
