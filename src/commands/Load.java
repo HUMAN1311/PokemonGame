@@ -18,7 +18,7 @@ public class Load extends Command {
     public void execute(Game game, ArrayList<String> args) {
         Game g = Game.load(args.get(0));
         if (g != null) {
-            game = g;
+            game.setGame(g);
         }
     }
 

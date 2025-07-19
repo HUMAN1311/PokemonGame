@@ -21,7 +21,7 @@ public class Game implements Serializable {
     private Location currentLocation;
     private PlayerCharacter player;
     private transient Scanner scan = new Scanner(System.in);
-    private ArrayList<Command> coolCommands = new ArrayList<Command>();
+    private transient ArrayList<Command> coolCommands = new ArrayList<Command>();
     private ArrayList<Location> coolLocations = new ArrayList<Location>();
 
     public Game() {
@@ -241,12 +241,25 @@ public class Game implements Serializable {
         return game;
     }
 
+    /**
+     * Sets the attributes for the new loaded game.
+     * 
+     * @param newGame The game object that is being loaded.
+     */
+
+    public void setGame(Game newGame) {
+        this.currentLocation = newGame.getCurrentLocation();
+        this.player = newGame.getPlayer();
+        this.coolLocations = newGame.getLocations();
+
+    }
+
 }
 // Make items in inv usable
 // after you quest for the button theres another character who u talk to
 // (hayato) watashiwadanokirayoshikage
 // toruu for shop person. no WOU (BuyNPC)
-// loading the game
+// fix bug and allow to load from the start
 
 // eigth handled sword divergent sila divine general <pokemon name> in shibuya
 // zoro :D (lost)
