@@ -35,6 +35,8 @@ public class Game implements Serializable {
     public static void main(String[] args) throws Exception {
         Game newGame = new Game();
         newGame.start();
+        // TODO: ask to enter save name, if nothing is entered start a new game and if
+        // they enter something fine the game and load it.
     }
 
     // public static void makeFile() {
