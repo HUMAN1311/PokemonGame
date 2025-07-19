@@ -255,11 +255,13 @@ public class Game implements Serializable {
     }
 
 }
-// Make items in inv usable
+// Make items in inv usable ⭐
+// option to load a game at the start ⭐
 // after you quest for the button theres another character who u talk to
 // (hayato) watashiwadanokirayoshikage
 // toruu for shop person. no WOU (BuyNPC)
-// fix bug and allow to load from the start
 
 // eigth handled sword divergent sila divine general <pokemon name> in shibuya
 // zoro :D (lost)
+
+// create and finish the use command
