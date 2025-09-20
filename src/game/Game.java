@@ -21,7 +21,7 @@ public class Game implements Serializable {
     private Location currentLocation;
     private PlayerCharacter player;
     private transient Scanner scan = new Scanner(System.in);
-    private transient ArrayList<Command> coolCommands = new ArrayList<Command>();
+    private transient ArrayList<Command> coolCommands;
     private ArrayList<Location> coolLocations = new ArrayList<Location>();
 
     public Game() {
@@ -33,60 +33,19 @@ public class Game implements Serializable {
     }
 
     public static void main(String[] args) throws Exception {
-        Game newGame = new Game();
-        newGame.start();
+        System.out.print("Please enter a save name, if you wish to start a new game press [ENTER]   ");
+        Scanner scan = new Scanner(System.in);
+        String saveName = scan.nextLine();
+        if (saveName == "") {
+            Game newGame = new Game();
+            newGame.start();
+        } else {
+            Game.load(saveName).start();
+        }
+
         // TODO: ask to enter save name, if nothing is entered start a new game and if
-        // they enter something fine the game and load it.
+        // they enter something find the game and load it.
     }
-
-    // public static void makeFile() {
-    // try {
-    // File f = new File("File.txt");
-    // boolean wasCreated = f.createNewFile();
-    // if (wasCreated) {
-    // System.out.println("File was created");
-    // } else {
-    // System.out.println("File already exists");
-    // }
-    // } catch (IOException e) {
-    // System.out.println("IOException occured :<");
-    // }
-    // }
-
-    // public static void writeFile() {
-
-    // try {
-    // FileWriter w = new FileWriter("File.txt", true);
-    // w.write(" __\r\n" + //
-    // " w c(..)o (\r\n" + //
-    // " \\__(-) __)\r\n" + //
-    // " /\\ (\r\n" + //
-    // " /(_)___)\r\n" + //
-    // " w /|\r\n" + //
-    // " | \\\r\n" + //
-    // " m m \r\n");
-    // w.close();
-    // System.out.println("my new favourite reaction image is the distinguished
-    // monkey");
-    // } catch (IOException e) {
-    // System.out.println("An IOExecption occured");
-    // }
-    // }
-
-    // public static void readFile() {
-
-    // try {
-    // File r = new File("File.txt");
-    // Scanner scan = new Scanner(r);
-    // while (scan.hasNextLine()) {
-    // System.out.println(scan.nextLine());
-    // }
-    // scan.close();
-    // } catch (FileNotFoundException e) {
-    // System.out.println("File was not found" + e.getMessage());
-
-    // }
-    // }
 
     private void createCharacter() {
         System.out.print("What is your name?    ");
@@ -156,10 +115,11 @@ public class Game implements Serializable {
     }
 
     private void instantiateCmds() {
+        this.coolCommands = new ArrayList<Command>();
         this.coolCommands.add(new WhoAmI());
         this.coolCommands.add(new WhereAmI());
         this.coolCommands.add(new LookAround());
-        this.coolCommands.add(new Interact());
+        this.coolCommands.add(new Interact()); // this is ths fish command 🐟
         this.coolCommands.add(new Inspect());
         this.coolCommands.add(new Help());
         this.coolCommands.add(new PickUp());
@@ -240,6 +200,8 @@ public class Game implements Serializable {
         } catch (ClassNotFoundException e) {
             System.out.println("There was an error when loading the game" + e.getMessage());
         }
+        game.getScanner(); // just to set the scan attribute
+        game.instantiateCmds(); // just to set the command attribute
         return game;
     }
 
