@@ -263,3 +263,5 @@ public class Game implements Serializable {
 
 // eigth handled sword divergent sila divine general <pokemon name> in shibuya
 // zoro :D (lost)
+// tomodachi land or world
+// the wired from lain
