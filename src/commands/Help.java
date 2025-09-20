@@ -23,6 +23,8 @@ public class Help extends Command {
         System.out.println("    - Travel");
         System.out.println("    - WhereAmI");
         System.out.println("    - WhoAmI");
+        System.out.println("    - Save");
+        System.out.println("    - Load");
     }
 
     public void execute(Game game, ArrayList<String> args) {
