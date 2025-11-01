@@ -167,6 +167,7 @@ public class Game implements Serializable {
         this.coolCommands.add(new Map());
         this.coolCommands.add(new Save());
         this.coolCommands.add(new Load());
+        this.coolCommands.add(new Use());
     }
 
     public Location findLocation(String name) {
@@ -255,6 +256,7 @@ public class Game implements Serializable {
     }
 
 }
+// make it so thheres not infinte mouldy appels
 // Make items in inv usable ⭐
 // option to load a game at the start ⭐
 // after you quest for the button theres another character who u talk to
