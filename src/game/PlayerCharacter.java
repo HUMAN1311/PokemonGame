@@ -52,6 +52,10 @@ public class PlayerCharacter implements Serializable {
         return bag.remove(i);
     }
 
+    public boolean removeFromBag(Item item) {
+        return bag.remove(item);
+    }
+
     public void addQuest(Quest quest) {
         // this for loop prevents duplicate quests
         for (Quest q : questList) {

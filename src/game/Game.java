@@ -129,6 +129,7 @@ public class Game implements Serializable {
         this.coolCommands.add(new Map());
         this.coolCommands.add(new Save());
         this.coolCommands.add(new Load());
+        this.coolCommands.add(new Use());
     }
 
     public Location findLocation(String name) {
@@ -219,11 +220,12 @@ public class Game implements Serializable {
     }
 
 }
-// Make items in inv usable
+// make it so thheres not infinte mouldy appels
+// Make items in inv usable ⭐
+// option to load a game at the start ⭐
 // after you quest for the button theres another character who u talk to
 // (hayato) watashiwadanokirayoshikage
 // toruu for shop person. no WOU (BuyNPC)
-// fix bug and allow to load from the start
 
 // eigth handled sword divergent sila divine general <pokemon name> in shibuya
 // zoro :D (lost)
