@@ -9,7 +9,7 @@ public class MouldyApple extends Item implements Consumable {
     }
 
     public void use(Game game) {
-        // game.getPlayer().removeFromBag() it wants index add the name or something :(
+        game.getPlayer().removeFromBag(this);
         // 😭🍞🧀🍞
         System.out.println(game.getPlayer().name + ":   That was gross");
     }
