@@ -15,7 +15,23 @@ import java.io.Serializable;
 import theworld.*;
 import commands.*;
 
+/**
+ * Game is a singleton class that stores and controls the state of the game.
+ * Since it is a singleton class, this means that there will only be one unique
+ * object,
+ * and it is easy to access because it's static (no object required).
+ * 
+ * For something to be a singleton you need to program three things:
+ * Point 1 - Needs a private, static attribute that will store the single
+ * instance of this class, initially null
+ * Point 2 - Needs a private constructor so noone can make multiple different
+ * instances
+ * Point 3 - Needs a public, static method to make it easy to access, if
+ * attribute is null it will make a new object, otherwise will use the old one
+ */
 public class Game implements Serializable {
+
+    private static Game instance = null;
 
     private static final long serialVersionUID = 1L;
     private Location currentLocation;
@@ -24,12 +40,18 @@ public class Game implements Serializable {
     private transient ArrayList<Command> coolCommands;
     private ArrayList<Location> coolLocations = new ArrayList<Location>();
 
-    public Game() {
+    private Game() {
         System.out.println("welcome to game");
         this.createCharacter();
         this.createWorld();
         this.instantiateCmds();
+    }
 
+    public static Game getInstance() {
+        if (instance == null) {
+            instance = new Game();
+        }
+        return instance;
     }
 
     public static void main(String[] args) throws Exception {
@@ -42,9 +64,7 @@ public class Game implements Serializable {
         } else {
             Game.load(saveName).start();
         }
-
-        // TODO: ask to enter save name, if nothing is entered start a new game and if
-        // they enter something find the game and load it.
+        scan.close();
     }
 
     private void createCharacter() {
