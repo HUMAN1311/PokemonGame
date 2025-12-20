@@ -12,11 +12,11 @@ public class Quests extends Command {
 
     }
 
-    public void execute(Game game) {
-        game.getPlayer().printQuests();
+    public void execute() {
+        Game.getInstance().getPlayer().printQuests();
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        this.execute(game);
+    public void execute(ArrayList<String> args) {
+        this.execute();
     }
 }

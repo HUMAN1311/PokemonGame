@@ -12,14 +12,14 @@ public class Map extends Command {
         argsAmount = 0;
     }
 
-    public void execute(Game game) {
+    public void execute() {
         // print a list of locations
-        for (Location l : game.getLocations()) {
+        for (Location l : Game.getInstance().getLocations()) {
             System.out.println("    - " + l.name);
         }
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        execute(game);
+    public void execute(ArrayList<String> args) {
+        execute();
     }
 }

@@ -12,8 +12,8 @@ public class Interact extends Command {
         this.argsAmount = 1;
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        NPC npcInteraction = game.getCurrentLocation().findNpc(args.get(0));
+    public void execute(ArrayList<String> args) {
+        NPC npcInteraction = Game.getInstance().getCurrentLocation().findNpc(args.get(0));
         if (npcInteraction != null) {
             npcInteraction.interact();
         } else {
@@ -22,7 +22,7 @@ public class Interact extends Command {
 
     }
 
-    public void execute(Game game) {
+    public void execute() {
         throw new Error("Please do not call this method or I will summon Mahoraga");
 
     }

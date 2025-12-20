@@ -12,16 +12,16 @@ public class Travel extends Command {
         this.argsAmount = 1;
     }
 
-    public void execute(Game game) {
-
+    public void execute() {
+        throw new Error("Please do not call this method or I will summon Mahoraga");
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        Location loc = game.findLocation(args.get(0));
+    public void execute(ArrayList<String> args) {
+        Location loc = Game.getInstance().findLocation(args.get(0));
         if (loc == null) {
             System.out.println("Where do you want to go?");
         } else {
-            game.setCurrentLocation(loc);
+            Game.getInstance().setCurrentLocation(loc);
         }
     }
 

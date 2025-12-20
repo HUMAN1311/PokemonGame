@@ -11,11 +11,11 @@ public class WhoAmI extends Command {
         this.argsAmount = 0;
     }
 
-    public void execute(Game game) {
-        System.out.println(game.getPlayer().name);
+    public void execute() {
+        System.out.println(Game.getInstance().getPlayer().name);
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        this.execute(game);
+    public void execute(ArrayList<String> args) {
+        this.execute();
     }
 }

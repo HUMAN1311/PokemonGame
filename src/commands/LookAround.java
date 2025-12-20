@@ -11,15 +11,15 @@ public class LookAround extends Command {
         this.argsAmount = 0;
     }
 
-    public void execute(Game game) {
-        System.out.println(game.getCurrentLocation().description);
-        game.getCurrentLocation().printNpcList();
-        game.getCurrentLocation().printItemList();
+    public void execute() {
+        System.out.println(Game.getInstance().getCurrentLocation().description);
+        Game.getInstance().getCurrentLocation().printNpcList();
+        Game.getInstance().getCurrentLocation().printItemList();
 
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        this.execute(game);
+    public void execute(ArrayList<String> args) {
+        this.execute();
     }
 
 }

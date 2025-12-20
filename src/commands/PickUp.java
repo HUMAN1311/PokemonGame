@@ -12,14 +12,14 @@ public class PickUp extends Command {
         this.argsAmount = 1;
     }
 
-    public void execute(Game game) {
-
+    public void execute() {
+        throw new Error("Please do not call this method or I will summon Mahoraga");
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        Item collectedItem = game.getCurrentLocation().removeItem(args.get(0));
+    public void execute(ArrayList<String> args) {
+        Item collectedItem = Game.getInstance().getCurrentLocation().removeItem(args.get(0));
         if (collectedItem != null) {
-            game.getPlayer().addToBag(collectedItem);
+            Game.getInstance().getPlayer().addToBag(collectedItem);
         } else {
             System.out.println("Please enter a valid item");
         }

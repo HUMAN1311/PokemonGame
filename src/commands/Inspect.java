@@ -13,22 +13,22 @@ public class Inspect extends Command {
         this.argsAmount = 1;
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        NPC npcInpection = game.getCurrentLocation().findNpc(args.get(0));
+    public void execute(ArrayList<String> args) {
+        NPC npcInpection = Game.getInstance().getCurrentLocation().findNpc(args.get(0));
         if (npcInpection != null) {
             npcInpection.inspect();
             return;
         }
         // bag
-        int itemInspectionIndex = game.getPlayer().searchBag(args.get(0));
-        Item gottenItem = game.getPlayer().getFromBag(itemInspectionIndex);
+        int itemInspectionIndex = Game.getInstance().getPlayer().searchBag(args.get(0));
+        Item gottenItem = Game.getInstance().getPlayer().getFromBag(itemInspectionIndex);
         if (gottenItem != null) {
             gottenItem.inspect();
             return;
         }
         // floor
-        itemInspectionIndex = game.getCurrentLocation().searchFloor(args.get(0));
-        gottenItem = game.getCurrentLocation().getFromFloor(itemInspectionIndex);
+        itemInspectionIndex = Game.getInstance().getCurrentLocation().searchFloor(args.get(0));
+        gottenItem = Game.getInstance().getCurrentLocation().getFromFloor(itemInspectionIndex);
         if (gottenItem != null) {
             gottenItem.inspect();
             return;
@@ -36,7 +36,7 @@ public class Inspect extends Command {
         System.out.println("Please enter a valid NPC/Item");
     }
 
-    public void execute(Game game) {
-
+    public void execute() {
+        throw new Error("Please do not call this method or I will summon Mahoraga");
     }
 } // 👍

@@ -11,15 +11,12 @@ public class Load extends Command {
         this.argsAmount = 1;
     }
 
-    public void execute(Game game) {
+    public void execute() {
         throw new Error("Please do not call this method or I will summon Mahoraga");
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        Game g = Game.load(args.get(0));
-        if (g != null) {
-            game.setGame(g);
-        }
+    public void execute(ArrayList<String> args) {
+        Game.load(args.get(0));
     }
 
 }

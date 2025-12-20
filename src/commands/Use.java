@@ -13,7 +13,7 @@ public class Use extends Command {
         argsAmount = 1;
     }
 
-    public void execute(Game game) {
+    public void execute() {
         throw new Error("Please do not call this method or I will summon Mahoraga");
     }
 
@@ -23,19 +23,19 @@ public class Use extends Command {
      * @param game the current instance of the game thats running
      * @param args the name of the item that they want to use
      */
-    public void execute(Game game, ArrayList<String> args) {
+    public void execute(ArrayList<String> args) {
         // got the string name in args 0
         // find the object from the inventory with the same name as the one in args
         // call the use method on that object
         // they might enter something that's not in their inventory
-        int index = game.getPlayer().searchBag(args.get(0));
+        int index = Game.getInstance().getPlayer().searchBag(args.get(0));
         if (index == -1) {
             System.out.println("This item is not in your inventory");
             return;
         }
-        Item item = game.getPlayer().getFromBag(index);
+        Item item = Game.getInstance().getPlayer().getFromBag(index);
         if (item instanceof Consumable) {
-            ((Consumable) item).use(game);
+            ((Consumable) item).use(Game.getInstance());
         } else {
             System.out.println("This item can not be used");
         }

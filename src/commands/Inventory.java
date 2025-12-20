@@ -11,12 +11,12 @@ public class Inventory extends Command {
         this.argsAmount = 0;
     }
 
-    public void execute(Game game) {
-        game.getPlayer().printBag();
-        System.out.println("Your balance is:    £" + game.getPlayer().getMoneyAmount());
+    public void execute() {
+        Game.getInstance().getPlayer().printBag();
+        System.out.println("Your balance is:    £" + Game.getInstance().getPlayer().getMoneyAmount());
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        this.execute(game);
+    public void execute(ArrayList<String> args) {
+        this.execute();
     }
 }

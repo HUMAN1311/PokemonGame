@@ -2,8 +2,6 @@ package commands;
 
 import java.util.ArrayList;
 
-import game.Game;
-
 public class Help extends Command {
 
     public Help() {
@@ -12,7 +10,7 @@ public class Help extends Command {
 
     }
 
-    public void execute(Game game) {
+    public void execute() {
         System.out.println("    - Interact");
         System.out.println("    - Inspect");
         System.out.println("    - Inventory");
@@ -27,7 +25,7 @@ public class Help extends Command {
         System.out.println("    - Load");
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        this.execute(game);
+    public void execute(ArrayList<String> args) {
+        this.execute();
     }
 }

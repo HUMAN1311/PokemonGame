@@ -123,10 +123,10 @@ public class Game implements Serializable {
         }
         // if there are no reqiured args then execute
         if (commandMatch.argsAmount == 0) {
-            commandMatch.execute(this);
+            commandMatch.execute();
         } else { // command reqiures arguments
             if (args.size() >= commandMatch.argsAmount) { // check if there is enough arguments given
-                commandMatch.execute(this, args);
+                commandMatch.execute(args);
             } else { // this runs where there are not enough args given
                 System.out.println("You must enter " + commandMatch.argsAmount + " total arguments");
             }

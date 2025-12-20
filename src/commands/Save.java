@@ -11,12 +11,12 @@ public class Save extends Command {
         argsAmount = 0;
     }
 
-    public void execute(Game game) {
-        game.save();
+    public void execute() {
+        Game.getInstance().save();
     }
 
-    public void execute(Game game, ArrayList<String> args) {
-        execute(game);
+    public void execute(ArrayList<String> args) {
+        execute();
     }
 
 }
