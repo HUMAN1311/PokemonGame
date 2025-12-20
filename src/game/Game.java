@@ -59,7 +59,7 @@ public class Game implements Serializable {
         Scanner scan = new Scanner(System.in);
         String saveName = scan.nextLine();
         if (saveName == "") {
-            Game newGame = new Game();
+            Game newGame = Game.getInstance();
             newGame.start();
         } else {
             Game.load(saveName).start();
@@ -223,6 +223,7 @@ public class Game implements Serializable {
         }
         game.getScanner(); // just to set the scan attribute
         game.instantiateCmds(); // just to set the command attribute
+        instance = game;
         return game;
     }
 

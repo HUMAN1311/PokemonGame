@@ -9,11 +9,9 @@ public class Mum extends DialogNPC {
     }
 
     @Override
-    public void interact(Game game) {
+    public void interact() {
         System.out.println(name + ":    " + dialog);
-        game.getPlayer().addQuest(new CollectHat());
+        Game.getInstance().getPlayer().addQuest(new CollectHat());
     }
-
-    // ;
 
 }

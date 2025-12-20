@@ -10,8 +10,8 @@ public class Rohan extends DialogNPC {
     }
 
     @Override
-    public void interact(Game game) {
+    public void interact() {
         System.out.println(name + ":    " + dialog);
-        game.getPlayer().addQuest(new CollectButton());
+        Game.getInstance().getPlayer().addQuest(new CollectButton());
     }
 }

@@ -9,8 +9,8 @@ public class Skitty extends DialogNPC {
     }
 
     @Override
-    public void interact(Game game) {
-        if (game.getPlayer().searchBag(BlueBall.NAME) != -1) {
+    public void interact() {
+        if (Game.getInstance().getPlayer().searchBag(BlueBall.NAME) != -1) {
             System.out.println(name + ":    Shibobobobobobobobobobobo");
         } else {
             System.out.println(name + ":    " + dialog);
