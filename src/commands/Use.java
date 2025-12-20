@@ -35,7 +35,7 @@ public class Use extends Command {
         }
         Item item = Game.getInstance().getPlayer().getFromBag(index);
         if (item instanceof Consumable) {
-            ((Consumable) item).use(Game.getInstance());
+            ((Consumable) item).use();
         } else {
             System.out.println("This item can not be used");
         }
