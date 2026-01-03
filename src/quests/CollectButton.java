@@ -1,25 +1,26 @@
 package quests;
 
-import game.PlayerCharacter;
+import game.Game;
 import items.StrangeButton;
 
 public class CollectButton extends Quest {
+    public static final String NAME = "CollectButton";
 
     public CollectButton() {
-        name = "CollectButton";
+        name = NAME;
         description = "Find & Collect one of Kira's buttons";
     }
 
-    public boolean isComplete(PlayerCharacter player) {
-        if (player.searchBag(StrangeButton.NAME) != -1) {
-            giveReward(player);
+    public boolean isComplete() {
+        if (Game.getInstance().getPlayer().searchBag(StrangeButton.NAME) != -1) {
+            giveReward();
             return true;
         } else
             return false;
 
     }
 
-    protected void giveReward(PlayerCharacter player) {
+    protected void giveReward() {
         System.out.println("Rohan:  Thanks, that's the button I need");
     }
 }

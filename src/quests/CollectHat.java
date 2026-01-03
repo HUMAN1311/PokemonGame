@@ -1,25 +1,25 @@
 package quests;
 
-import game.PlayerCharacter;
+import game.Game;
 import items.*;
 
 public class CollectHat extends Quest {
     public CollectHat() {
         name = "CollectHat";
-        description = "Find & Collect one Hat";
+        description = "Find & collect one Hat";
     }
 
-    public boolean isComplete(PlayerCharacter player) {
-        if (player.searchBag(Hat.NAME) != -1) {
-            giveReward(player);
+    public boolean isComplete() {
+        if (Game.getInstance().getPlayer().searchBag(Hat.NAME) != -1) {
+            giveReward();
             return true;
         } else
             return false;
 
     }
 
-    protected void giveReward(PlayerCharacter player) {
-        player.addToBag(new Sandwich());
+    protected void giveReward() {
+        Game.getInstance().getPlayer().addToBag(new Sandwich());
         System.out.println("Mum:    Well done for finding your hat, here's a sandwich!");
     }
 

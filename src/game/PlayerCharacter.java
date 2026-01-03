@@ -56,6 +56,16 @@ public class PlayerCharacter implements Serializable {
         return bag.remove(item);
     }
 
+    public Item removeFromBag(String name) {
+        int iToRemove = -1;
+        for (int i = 0; i < bag.size(); i++) {
+            if (bag.get(i).name == name) {
+                iToRemove = i;
+            }
+        }
+        return bag.remove(iToRemove);
+    }
+
     public void addQuest(Quest quest) {
         // this for loop prevents duplicate quests
         for (Quest q : questList) {
@@ -75,7 +85,7 @@ public class PlayerCharacter implements Serializable {
     public void checkQuests() {
         ArrayList<Quest> toRemove = new ArrayList<Quest>();
         for (Quest q : questList) {
-            boolean questComplete = q.isComplete(this);
+            boolean questComplete = q.isComplete();
             if (questComplete) {
                 completedQuestList.add(q);
                 toRemove.add(q);
@@ -84,6 +94,15 @@ public class PlayerCharacter implements Serializable {
         for (Quest q : toRemove) {
             questList.remove(q);
         }
+    }
+
+    public boolean checkQuestCompletion(String name) {
+        for (Quest quest : completedQuestList) {
+            if (quest.name == name) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void printQuests() {

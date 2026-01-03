@@ -82,6 +82,7 @@ public class Game implements Serializable {
         coolLocations.add(new Morioh());
         coolLocations.add(new Shibuya());
         coolLocations.add(new Shop());
+        coolLocations.add(new FriendWorld());
         currentLocation = coolLocations.get(0);
     }
 
@@ -241,12 +242,19 @@ public class Game implements Serializable {
     }
 
 }
-// after you quest for the button theres another character who u talk to
-// (hayato) watashiwadanokirayoshikage
+// add new quest after hayato ⭐
 // toruu for shop person. no WOU (BuyNPC)
 // pokemon
+// certain locations locked behind quests
+// update quest names to the blue NAME
+// make npc text correctly spaced aka make a talking method
 
 // eigth handled sword divergent sila divine general <pokemon name> in shibuya
 // zoro :D (lost)
 // tomodachi land or world
 // the wired from lain
+// yoshitsune and song lyrics ⭐
+
+// atom heart father ⭐
+// to kira
+// stand arrow reward
