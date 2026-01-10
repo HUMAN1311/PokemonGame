@@ -10,7 +10,7 @@ public class Mum extends DialogNPC {
 
     @Override
     public void interact() {
-        System.out.println(name + ":    " + dialog);
+        this.speak(dialog);
         Game.getInstance().getPlayer().addQuest(new CollectHat());
     }
 

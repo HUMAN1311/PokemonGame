@@ -1,7 +1,9 @@
 package theworld;
 
 import npc.*;
-import items.*;
+import items.Item;
+import items.Sandwich;
+import items.MouldyApple;
 
 import java.util.ArrayList;
 
@@ -21,6 +23,7 @@ public class Shop extends Location {
         ArrayList<Item> collectables = new ArrayList<Item>();
         collectables.add(new MouldyApple());
         collectables.add(new Sandwich());
+
         return collectables; // and cube in our hearts 🫀
     }
 }

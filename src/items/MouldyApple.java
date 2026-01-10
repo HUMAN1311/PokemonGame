@@ -11,6 +11,6 @@ public class MouldyApple extends Item implements Consumable {
     public void use() {
         Game.getInstance().getPlayer().removeFromBag(this);
         // 😭🍞🧀🍞
-        System.out.println(Game.getInstance().getPlayer().name + ":   That was gross");
+        Game.getInstance().getPlayer().speak("That was gross!");
     }
 }

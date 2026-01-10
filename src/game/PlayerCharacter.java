@@ -75,7 +75,7 @@ public class PlayerCharacter implements Serializable {
     public void checkQuests() {
         ArrayList<Quest> toRemove = new ArrayList<Quest>();
         for (Quest q : questList) {
-            boolean questComplete = q.isComplete(this);
+            boolean questComplete = q.isComplete();
             if (questComplete) {
                 completedQuestList.add(q);
                 toRemove.add(q);
@@ -122,5 +122,9 @@ public class PlayerCharacter implements Serializable {
         } else {
             return null;
         }
+    }
+
+    public void speak(String dialog) {
+        System.out.println(this.name + ":   " + dialog);
     }
 }
