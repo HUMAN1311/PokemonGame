@@ -2,6 +2,7 @@ package quests;
 
 import game.Game;
 import items.*;
+import npc.NPC;
 
 public class CollectHat extends Quest {
     public CollectHat() {
@@ -20,7 +21,7 @@ public class CollectHat extends Quest {
 
     protected void giveReward() {
         Game.getInstance().getPlayer().addToBag(new Sandwich());
-        System.out.println("Mum:    Well done for finding your hat, here's a sandwich!");
+        NPC.speak("Well done for finding your hat, here's a sandwich!", "Mum");
     }
 
 }
