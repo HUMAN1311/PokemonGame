@@ -9,10 +9,9 @@ public class SellNPC extends NPC {
 
     }
 
-    @Override
     public void interact() {
-        System.out.println(name + ":    Welcome to 'Shop'");
-        System.out.println(name + ":    What would you like to sell");
+        this.speak("Welcome to 'Shop'");
+        this.speak("What would you like to sell");
         String input = Game.getInstance().getScanner().nextLine();
         int index = Game.getInstance().getPlayer().searchBag(input);
         if (index != -1) {
@@ -20,7 +19,7 @@ public class SellNPC extends NPC {
             Item itemRemoved = Game.getInstance().getPlayer().removeFromBag(index);
             Game.getInstance().getPlayer().addToBalance(itemRemoved.value);
         } else {
-            System.out.println(name + ":    What do you want to sell? Please enter a valid item.");
+            this.speak("What do you want to sell? Please enter a valid item.");
         }
 
     }

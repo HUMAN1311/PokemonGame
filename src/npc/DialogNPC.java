@@ -8,9 +8,8 @@ public class DialogNPC extends NPC {
         this.dialog = dialog;
     }
 
-    @Override
     public void interact() {
-        System.out.println(name + ":    " + dialog);
+        this.speak(dialog);
     }
 
 }

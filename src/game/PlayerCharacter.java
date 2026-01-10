@@ -142,4 +142,8 @@ public class PlayerCharacter implements Serializable {
             return null;
         }
     }
+
+    public void speak(String dialog) {
+        System.out.println(this.name + ":   " + dialog);
+    }
 }

@@ -9,6 +9,6 @@ public class Sandwich extends Item implements Consumable {
 
     public void use() {
         Game.getInstance().getPlayer().removeFromBag(this);
-        System.out.println(Game.getInstance().getPlayer().name + ":   Mmm sandwich good");
+        Game.getInstance().getPlayer().speak("Mmm sandwich good");
     }
 }

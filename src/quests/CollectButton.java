@@ -2,6 +2,7 @@ package quests;
 
 import game.Game;
 import items.StrangeButton;
+import npc.NPC;
 
 public class CollectButton extends Quest {
     public static final String NAME = "CollectButton";
@@ -21,6 +22,6 @@ public class CollectButton extends Quest {
     }
 
     protected void giveReward() {
-        System.out.println("Rohan:  Thanks, that's the button I need");
+        NPC.speak("Thanks, that's the button I need", "Rohan");
     }
 }
