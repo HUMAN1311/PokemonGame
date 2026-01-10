@@ -244,14 +244,12 @@ public class Game implements Serializable {
 }
 // add new quest after hayato ⭐
 // toruu for shop person. no WOU (BuyNPC)
-// pokemon
+// pokemon 🤩
 // certain locations locked behind quests
 // update quest names to the blue NAME
-// make npc text correctly spaced aka make a talking method
 
 // eigth handled sword divergent sila divine general <pokemon name> in shibuya
 // zoro :D (lost)
-// tomodachi land or world
 // the wired from lain
 // yoshitsune and song lyrics ⭐
 
