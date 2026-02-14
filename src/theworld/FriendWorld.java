@@ -6,12 +6,13 @@ import items.TapedPaper;
 import items.Item;
 import npc.Hayato;
 import npc.NPC;
+import items.BlueBall;
 
-public class FriendWorld extends Location {
+public class FriendWorld extends ItemLockedLocation {
 
     public FriendWorld() {
         super("FriendWorld", "There's a lot of strange buildings and rides, they all seem to have a strange eye",
-                generateFriendWorldNpcs(), generateFriendWorldItems());
+                generateFriendWorldNpcs(), generateFriendWorldItems(), BlueBall.NAME);
     }
 
     private static ArrayList<NPC> generateFriendWorldNpcs() {
