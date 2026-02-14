@@ -1,13 +1,15 @@
 package theworld;
 
 import npc.*;
+import quests.CollectHat;
 import items.*;
 
 import java.util.ArrayList;
 
-public class Morioh extends Location {
+public class Morioh extends QuestLockedLocation {
     public Morioh() {
-        super("Morioh", "A small town, the sky looks rather yellow.", generateMoriohNpcs(), generateMoriohItems());
+        super("Morioh", "A small town, the sky looks rather yellow.", generateMoriohNpcs(), generateMoriohItems(),
+                CollectHat.NAME);
     }
 
     public static ArrayList<NPC> generateMoriohNpcs() {

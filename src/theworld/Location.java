@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import items.Item;
 import npc.NPC;
+import game.Game;
 
 public class Location implements Serializable {
 
@@ -19,6 +20,12 @@ public class Location implements Serializable {
         this.description = description;
         this.NPCs = NPCs;
         this.collectables = collectables;
+    }
+
+    public boolean travel() {
+        Game.getInstance().setCurrentLocation(this);
+        return true;
+
     }
 
     public void printNpcList() {

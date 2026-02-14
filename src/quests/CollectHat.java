@@ -5,8 +5,10 @@ import items.*;
 import npc.NPC;
 
 public class CollectHat extends Quest {
+    public static final String NAME = "CollectHat";
+
     public CollectHat() {
-        name = "CollectHat";
+        name = NAME;
         description = "Find & collect one Hat";
     }
 
@@ -21,7 +23,7 @@ public class CollectHat extends Quest {
 
     protected void giveReward() {
         Game.getInstance().getPlayer().addToBag(new Sandwich());
-        NPC.speak("Well done for finding your hat, here's a sandwich!", "Mum");
+        NPC.speak("Well done for finding your hat, here's a sandwich! Make your way to Morioh.", "Mum");
     }
 
 }

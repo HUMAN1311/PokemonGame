@@ -245,7 +245,6 @@ public class Game implements Serializable {
 // add new quest after hayato ⭐
 // toruu for shop person. no WOU (BuyNPC)
 // pokemon 🤩
-// certain locations locked behind quests
 // update quest names to the blue NAME
 
 // eigth handled sword divergent sila divine general <pokemon name> in shibuya

@@ -21,7 +21,7 @@ public class Travel extends Command {
         if (loc == null) {
             System.out.println("Where do you want to go?");
         } else {
-            Game.getInstance().setCurrentLocation(loc);
+            loc.travel();
         }
     }
 
